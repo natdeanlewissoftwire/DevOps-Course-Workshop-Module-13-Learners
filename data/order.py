@@ -24,7 +24,7 @@ class Order(db.Model):
         self.customer = customer
         self.date_placed = date_placed
         self.date_processed = date_processed
-        self.status = 'Queued' if self.date_processed else 'Complete'
+        self.status = 'Complete' if self.date_processed else 'Queued'
         self.download = download
 
     def __repr__(self):
@@ -43,5 +43,4 @@ class Order(db.Model):
         self.status = COMPLETE
 
     def set_as_failed(self):
-        self.date_processed = datetime.now(tz=utc)
         self.status = FAILED
