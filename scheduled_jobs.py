@@ -27,7 +27,7 @@ def process_orders(app):
         payload = {
             "product": order.product,
             "customer": order.customer,
-            "date": order.date_placed.astimezone(timezone.utc).isoformat(),
+            "date": order.date_placed_local.isoformat(),
         }
 
         response = requests.post(
@@ -36,8 +36,6 @@ def process_orders(app):
         )
 
         app.logger.info("Response from endpoint: " + response.text)
-        app.logger.info(order.date_placed)
-        app.logger.info(order.date_placed.isoformat())
 
         response.raise_for_status()
 
