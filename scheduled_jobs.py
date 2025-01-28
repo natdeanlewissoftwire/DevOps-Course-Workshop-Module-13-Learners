@@ -34,7 +34,8 @@ def process_orders(app):
             json=payload
         )
 
-        app.logger.info("Response from endpoint: " + response.text + ", date: " + order.date_placed)
+        app.logger.info("Response from endpoint: " + response.text)
+        app.logger.info(order.date_placed)
 
         response.raise_for_status()
 
