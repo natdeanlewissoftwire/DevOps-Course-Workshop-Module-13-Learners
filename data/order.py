@@ -43,4 +43,5 @@ class Order(db.Model):
         self.status = COMPLETE
 
     def set_as_failed(self):
+        self.date_processed = datetime.now(tz=utc)
         self.status = FAILED
