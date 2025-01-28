@@ -24,7 +24,7 @@ class Order(db.Model):
         self.customer = customer
         self.date_placed = date_placed
         self.date_processed = date_processed
-        self.status = 'Complete' if self.date_processed else 'Queued'
+        self.status = 'Queued' if self.date_processed else 'Complete'
         self.download = download
 
     def __repr__(self):
